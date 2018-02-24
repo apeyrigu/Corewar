@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 06:14:01 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/24 02:47:16 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/24 06:35:28 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,9 @@ int				found_key(char c)
 	return (i >= 9 ? error_args("Wrong arg") : i);
 }
 
-void			check_params(int ac, char **av, t_vm *vm)
+void			int_t_vm(t_vm *vm)
 {
-	int			i;
-	t_flag		tmp;
-	t_player	*test;
-
-	if (ac == 1)
-		how_use();
-	i = 0;
-	tmp = (t_flag){	.id = 1, .num = 0, .color = 0 };
+	vm->process = NULL;
 	vm->max_cycles = -1;
 	vm->players = NULL;
 	vm->ncurses_mode = 0;
@@ -65,10 +58,22 @@ void			check_params(int ac, char **av, t_vm *vm)
 	vm->debug = 0;
 	vm->nbprocess = 0;
 	vm->aff = 1;
+	vm->ncurses_play = 0;
+}
+
+void			check_params(int ac, char **av, t_vm *vm)
+{
+	int			i;
+	t_flag		tmp;
+
+	if (ac == 1)
+		how_use();
+	i = 0;
+	int_t_vm(vm);
+	tmp = (t_flag){	.id = 1, .num = 0, .color = 0 };
 	while (++i < ac)
 		i += g_found[found_key(av[i][ft_strlen(av[i]) - 1])](av, vm, i, &tmp);
 	if (tmp.num != 0 || tmp.color != -1)
 		error_args("Pas de joueurs ou flag en fin de ligne");
-	test = vm->players;
 	vm->nbchamps = tmp.id - 1;
 }

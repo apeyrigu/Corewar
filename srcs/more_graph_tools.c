@@ -6,7 +6,7 @@
 /*   By: pcluchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 01:56:12 by pcluchet          #+#    #+#             */
-/*   Updated: 2018/02/24 02:01:12 by pcluchet         ###   ########.fr       */
+/*   Updated: 2018/02/24 06:25:08 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,12 @@ void	draw_and_refresh(t_vm *vm)
 
 void	read_pause(t_vm *vm)
 {
-	int k;
+	char k;
 
 	if (vm->ncurses_play)
-	{
 		timeout(0);
-	}
 	else
-	{
 		timeout(-1);
-	}
 	k = getch();
 	if (k == ' ')
 		vm->ncurses_play = !vm->ncurses_play;

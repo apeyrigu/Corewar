@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 04:40:54 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/24 05:05:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/24 06:33:41 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,19 @@ int		flagvisu(char **s, t_vm *vm, int i, t_flag *tmp)
 
 int		nbcycles(char **s, t_vm *vm, int i, t_flag *tmp)
 {
+	char	*tmp2;
+
 	(void)tmp;
 	if (!s[i + 1])
 		error_args("-dump at end without number");
 	if (ft_strcmp(s[i], "-dump") == 0)
 	{
 		vm->max_cycles = ft_atoi(s[i + 1]);
-		if (ft_strlen(s[i + 1]) != ft_strlen(ft_itoa(vm->max_cycles)) ||
+		tmp2 = ft_itoa(vm->max_cycles);
+		if (ft_strlen(s[i + 1]) != ft_strlen(tmp2) ||
 				vm->max_cycles <= 0)
 			error_args("Wrong Number With -dump or Number <= 0");
+		ft_strdel(&tmp2);
 	}
 	else
 		error_args("Wrong arg");
