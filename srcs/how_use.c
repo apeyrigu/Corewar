@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 07:07:49 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/24 01:28:33 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/27 18:56:29 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void			how_use(void)
 	ft_printf("	-w N -Dumps memory after N cycles while end (min 10)-\n");
 	ft_printf("######	Ncurses Output Mode	######\n");
 	ft_printf("	-v   -Visual Mod-\n");
-	ft_printf("	-c   -Chose color: black - green - blue - white -\n");
 	exit(0);
 }
