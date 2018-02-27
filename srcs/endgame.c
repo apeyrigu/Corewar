@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   endgame.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcluchet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 01:03:56 by pcluchet          #+#    #+#             */
-/*   Updated: 2018/02/24 02:44:57 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/27 17:57:24 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,30 @@ char	end(t_vm *vm)
 void	disp_winner(t_vm *vm)
 {
 	t_player	*current_player;
-	t_player	*winner_player;
+	t_player	*wp;
 	int			maxcycle;
 	int			maxorder;
 
 	maxcycle = 0;
 	maxorder = 0;
 	current_player = vm->players;
-	winner_player = NULL;
+	wp = NULL;
 	while (current_player)
 	{
 		if (current_player->last_live_cycle > maxcycle ||
 				(current_player->last_live_cycle == maxcycle &&
 					current_player->last_live_order >= maxorder))
 		{
-			winner_player = current_player;
+			wp = current_player;
 			maxcycle = current_player->last_live_cycle;
 			maxorder = current_player->last_live_order;
 		}
 		current_player = current_player->next;
 	}
-	if (winner_player)
-		ft_printf("Le joueur #%d \"%s\" a gagné\n",
-				winner_player->num, winner_player->name);
+	if (wp)
+		ft_printf("Le joueur #%d \"%s\" a gagné\n", wp->num, wp->name);
+	else
+		ft_printf("Aucun gagnant\n");
 }
 
 void	free_players(t_vm *vm)

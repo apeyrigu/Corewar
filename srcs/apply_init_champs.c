@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 23:04:44 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/24 03:39:17 by apeyrigu         ###   ########.fr       */
+/*   Updated: 2018/02/27 17:55:50 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,13 @@ int			isachamp(char **s, t_vm *vm, int i, t_flag *tmp)
 		error_args("Wrong open");
 	if (!read(fd, &header, sizeof(t_header)))
 		error_args("Wrong Head");
+	ft_endian(header.magic) == COREWAR_EXEC_MAGIC ? (void)i
+	: error_args("wrong magic number");
 	ft_endian(header.prog_size) > CHAMP_MAX_SIZE ? error_args("wrong size")
 	: (void)i;
 	champ_head(vm, &player, &header, tmp);
-	if (!read(fd, champ_body(vm, &player),
-		ft_endian(header.prog_size)))
+	fd = read(fd, champ_body(vm, &player), ft_endian(header.prog_size));
+	if (!fd || fd != (int)ft_endian(header.prog_size))
 		error_args("Wrong player or size player");
 	tmp->num = 0;
 	tmp->color = -1;
