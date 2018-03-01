@@ -6,7 +6,7 @@
 #    By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 10:47:39 by pcluchet          #+#    #+#              #
-#    Updated: 2018/02/24 05:04:18 by abassibe         ###   ########.fr        #
+#    Updated: 2018/03/01 20:42:42 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,18 +63,18 @@ all : $(NAME)
 
 $(NAME) : libs $(O_FILES)
 	$(CC) -o $(NAME) $(O_FILES) $(CFLAGS) $(LINKS)
-	make -C asm
+	make -C asm_folder
 
 clean :
 	rm -f $(O_FILES) 
 	make -C $(LIBFT_DIR) clean
-	make -C asm clean
+	make -C asm_folder clean
 
 fclean : clean
 	rm -f $(NAME)
 	rm -f $(LIBFT_DIR)libft.a
 	rm -f $(MLX_DIR)libmlx.a
-	make -C asm fclean
+	make -C asm_folder fclean
 
 re : 
 	$(MAKE) fclean
