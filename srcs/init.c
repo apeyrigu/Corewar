@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 06:14:01 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/27 17:58:51 by apeyrigu         ###   ########.fr       */
+/*   Updated: 2018/03/01 19:21:27 by pcluchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			int_t_vm(t_vm *vm)
 	vm->no_decrease_since = 0;
 	vm->debug = 0;
 	vm->nbprocess = 0;
-	vm->aff = 1;
+	vm->aff = 0;
 	vm->ncurses_play = 0;
 }
 
@@ -76,5 +76,4 @@ void			check_params(int ac, char **av, t_vm *vm)
 	if (tmp.num != 0 || tmp.color != -1)
 		error_args("Pas de joueurs ou flag en fin de ligne");
 	vm->nbchamps = tmp.id - 1;
-	ft_printf("%d\n", vm->players->num);
 }
