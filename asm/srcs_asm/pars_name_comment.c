@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 02:08:15 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 05:18:30 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 20:38:57 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,18 @@ static char		check_name(const char *str)
 	int		i;
 
 	i = 0;
-	while (*str != '"')
+	while (*str && *str != '"')
 		str++;
 	str++;
-	while (*str != '"')
+	while (*str && *str != '"')
 	{
 		str++;
 		i++;
 		if (i > PROG_NAME_LENGTH)
 			return (0);
 	}
+	if (!*str)
+		return (0);
 	str++;
 	while (*str)
 	{
@@ -57,16 +59,18 @@ static char		check_comment(const char *str)
 	int		i;
 
 	i = 0;
-	while (*str != '"')
+	while (*str && *str != '"')
 		str++;
 	str++;
-	while (*str != '"')
+	while (*str && *str != '"')
 	{
 		str++;
 		i++;
 		if (i > COMMENT_LENGTH)
 			return (0);
 	}
+	if (!*str)
+		return (0);
 	str++;
 	while (*str)
 	{
