@@ -6,11 +6,21 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 04:40:54 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/24 01:38:57 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 20:24:30 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+int		isaff(char **s, t_vm *vm, int i, t_flag *tmp)
+{
+	(void)tmp;
+	if (ft_strcmp(s[i], "-aff") == 0)
+		vm->aff = 1;
+	else
+		error_args("Wrong arg");
+	return (0);
+}
 
 int		flagcolor(char **s, t_vm *vm, int i, t_flag *tmp)
 {

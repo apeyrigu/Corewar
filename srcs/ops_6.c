@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_6.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcluchet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 22:59:35 by pcluchet          #+#    #+#             */
-/*   Updated: 2018/02/24 03:50:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 20:22:58 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	do_aff(t_vm *vm, int *params, t_process *process)
 {
 	process++;
-	if (vm->aff)
-		ft_printf("%c", params[1] % 256);
+	if (vm->aff == 1)
+	{
+		ft_printf("%c\n", params[1] % 256);
+	}
 }
 
 void	decode_aff(t_vm *vm, t_process *process)

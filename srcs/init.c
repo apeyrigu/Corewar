@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 06:14:01 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/03/01 19:21:27 by pcluchet         ###   ########.fr       */
+/*   Updated: 2018/03/01 19:55:19 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static const	t_pars	g_found[] =
 	[2] = flagnumber,
 	[3] = flagcolor,
 	[4] = nbcycles,
+	[6] = isaff,
 	[5] = debug_mod,
 	[7] = d_dump,
 	[8] = w_dump,

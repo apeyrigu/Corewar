@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcluchet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 00:55:23 by pcluchet          #+#    #+#             */
-/*   Updated: 2018/03/01 19:17:36 by pcluchet         ###   ########.fr       */
+/*   Updated: 2018/03/01 20:21:25 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	check_cycles(t_vm *vm)
 
 void	init_everything(t_vm *vm)
 {
-	vm->aff = 0;
 	init_arena(vm);
 	create_processes(vm);
 	init_pc_players(vm);

@@ -6,7 +6,7 @@
 /*   By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 06:01:23 by apeyrigu          #+#    #+#             */
-/*   Updated: 2018/02/24 03:51:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 20:17:55 by apeyrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct			s_vm
 	int					nbchamps;
 	int					nbprocess;
 	struct s_process	*process;
-	char				aff;
+	int					aff;
 	int					debug;
 	int					fd;
 	int					ncurses_play;
@@ -213,5 +213,6 @@ void					death_mod(t_vm *vm, int proc, int op, int *arg);
 void					dump_process(t_process *process);
 void					copy_regs(t_process *process, t_process *destination);
 int						read_n_oct(t_vm *vm, int where, int n);
+int						isaff(char **s, t_vm *vm, int i, t_flag *tmp);
 
 #endif
