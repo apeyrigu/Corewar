@@ -70,12 +70,12 @@ decal2: live %1
 	
 	fork %:separ2
 	live %4
-	ld %0x08F40370,r3   #ld %0x07F40370,r3
+	ld %5639279506,r3   #ld %0x07F40370,r3
 
 	ld %0,r2
 	zjmp %:toto
 separ2:	live %3
-	ld %0x037004F4,r3  #ld %0x70037004,r3
+	ld %57672948,r3  #ld %0x70037004,r3
 
 	xor r2,r2,r2
 	zjmp %:toto
@@ -137,28 +137,28 @@ decal:	live %1
 	live %1
 	fork %:fuite
 	live %1
-	ld %0x03700300,r5
-	ld %0x04037003,r6
+	ld %57672448,r5
+	ld %67334147,r6
 
-	ld %0x03700501,r9
-	ld %0xFC037006,r10
-	ld %0x01FB0901,r11
-	ld %0xF2000000,r12
+	ld %57672961,r9
+	ld %4228083718,r10
+	ld %33229057,r11
+	ld %4060086272,r12
 
-	ld %0x03700901,r15
-	ld %0xFC03700A,r4
-	ld %0x01FB0370,r7
-	ld %0x0B01FA03,r8
-	ld %0x700C01F9,r13
-	ld %0x0901E800,r14
+	ld %57673985,r15
+	ld %4228083722,r4
+	ld %33227632,r7
+	ld %184678915,r8
+	ld %1879835129,r13
+	ld %151119872,r14
 	
 	fork %:sepa
 	live %4
-	ld %0x07510370,r3
+	ld %122749808,r3
 	ld %0,r2
 	zjmp %:tot
 sepa:	live %3
-	ld %0x70037004,r3
+	ld %1879273476,r3
 	xor r2,r2,r2
 	zjmp %:tot
 catch:	
@@ -181,11 +181,11 @@ catch:
 fuite:	live %1
 	fork %:separe
 	live %4
-	ld %0x07510370,r3
+	ld %122749808,r3
 	ld %0,r2
 	zjmp %:debut
 separe:	live %3
-	ld %0x70037004,r3
+	ld %1879273476,r3
 	xor r2,r2,r2
 	zjmp %:debut
 	

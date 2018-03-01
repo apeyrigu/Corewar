@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 02:46:44 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/06 03:47:24 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 03:23:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char					comment_or_empty(const char *str);
 void					kingdom_hearts(t_env *env);
 int						switch_int(int octet);
 void					print_name_comment(t_env *env, const char *str);
-char					*creat_bin(char *str);
+char					*creat_bin(const char *str);
 void					alloc_operators(t_env *env);
 void					alloc_op_functions(t_env *env);
 char					save_ulabel(t_env *env, const char *str);
@@ -105,5 +105,6 @@ void					free_tab(char **str, char **tab, int i);
 void					free_operator(t_env *env);
 void					free_struct(t_env *env);
 void					ft_error(const char *str, const int check);
+char					check_extend(const char *str);
 
 #endif

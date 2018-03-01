@@ -6,25 +6,34 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 05:18:30 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/06 03:40:01 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 03:25:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/asm.h"
 
-char	*creat_bin(char *str)
+char	check_extend(const char *str)
 {
-	char	**tab;
-	char	*tmp;
 	int		i;
 
-	i = -1;
-	tab = ft_strsplit(str, '.');
-	tmp = ft_strjoin(tab[0], ".cor");
-	while (tab[++i])
-		ft_strdel(&tab[i]);
-	free(tab);
-	return (tmp);
+	i = ft_strlen(str);
+	if (str[i - 2] != '.' || str[i - 1] != 's')
+	{
+		write(1, "Wrong extension\n", 16);
+		return (0);
+	}
+	return (1);
+}
+
+char	*creat_bin(const char *str)
+{
+	char	*tmp;
+	char	*ret;
+
+	tmp = ft_strndup(str, ft_strlen(str) - 2);
+	ret = ft_strjoin(tmp, ".cor");
+	ft_strdel(&tmp);
+	return (ret);
 }
 
 void	alloc_operators(t_env *env)

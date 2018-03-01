@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 03:10:10 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/22 02:15:47 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/01 05:22:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char			parseur(t_env *env, const char *file_name)
 	char	*str;
 	int		value;
 
-	if ((env->fd = open(file_name, O_RDONLY)) == -1)
+	if (!check_extend(file_name) || (env->fd = open(file_name, O_RDONLY)) == -1)
 	{
 		perror("");
 		return (0);
