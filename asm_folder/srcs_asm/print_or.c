@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 01:53:49 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:18:23 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/05 04:41:11 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static void		print_or2(t_env *env, const char *str, int *i, int save)
 	if (is_ind_print(str, &*i))
 	{
 		save = *i;
-		while (str[*i] && str[*i] != SEPARATOR_CHAR)
+		while (str[*i] && str[*i] != ',')
 			(*i)++;
 		(*i)++;
 		print_or_ind(env, str, &*i, save);
@@ -119,7 +119,7 @@ static void		print_or2(t_env *env, const char *str, int *i, int save)
 				(*i)++;
 		}
 		save = *i;
-		while (str[*i] && str[*i] != SEPARATOR_CHAR)
+		while (str[*i] && str[*i] != ',')
 			(*i)++;
 		(*i)++;
 		print_or_reg(env, str, &*i, save);
@@ -139,7 +139,7 @@ void			print_or(t_env *env, const char *str)
 	if (is_dir_print(str, &i))
 	{
 		save = i;
-		while (str[i] != SEPARATOR_CHAR)
+		while (str[i] != ',')
 			i++;
 		i++;
 		print_or_dir(env, str, &i, save);

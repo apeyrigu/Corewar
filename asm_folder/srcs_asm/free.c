@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 02:07:24 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/06 02:51:52 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 04:20:48 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	free_operator(t_env *env)
 	i = -1;
 	while (++i < 16)
 		ft_strdel(&env->op[i]);
+	free_struct(env);
+	free(env);
 }
 
 void	free_struct(t_env *env)

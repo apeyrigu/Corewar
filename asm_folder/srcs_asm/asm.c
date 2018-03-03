@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 02:22:44 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 06:24:50 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 04:20:37 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int		main(int ac, char **av)
 		ft_printf("\n{cyan}------------ Champions compilation -----------\n\n");
 	while (++i < ac)
 	{
-		env = (t_env *)ft_memalloc(sizeof(t_env));
+		if (!(env = (t_env *)ft_memalloc(sizeof(t_env))))
+			return (0);
 		alloc_operators(env);
 		if (parseur(env, av[i]))
 		{
@@ -43,8 +44,6 @@ int		main(int ac, char **av)
 		else
 			ft_printf("{red}An error occured with '%s'\n", av[i]);
 		free_operator(env);
-		free_struct(env);
-		free(env);
 	}
 	if (ac > 2)
 		ft_printf("\n{cyan}------------------------------------------------\n");

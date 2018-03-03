@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 04:57:59 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:19:06 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/07 03:47:56 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void			print_zjmp(t_env *env, const char *str)
 
 	tab[0] = 0x00000009;
 	write(FD, tab, 1);
-	while (*str != DIRECT_CHAR)
+	while (*str != '%')
 		str++;
-	if (str[1] != LABEL_CHAR)
+	if (str[1] != ':')
 	{
 		if ((tab[0] = (int)ft_atoi_long(&str[1])) < 0)
 			tab[0] = 65536 + tab[0];
@@ -68,9 +68,9 @@ void			print_fork(t_env *env, const char *str)
 
 	tab[0] = 0x0000000c;
 	write(FD, tab, 1);
-	while (*str != DIRECT_CHAR)
+	while (*str != '%')
 		str++;
-	if (str[1] != LABEL_CHAR)
+	if (str[1] != ':')
 	{
 		if ((tab[0] = (int)ft_atoi_long(&str[1])) < 0)
 			tab[0] = 65536 + tab[0];
@@ -91,9 +91,9 @@ void			print_lfork(t_env *env, const char *str)
 
 	tab[0] = 0x0000000f;
 	write(FD, tab, 1);
-	while (*str != DIRECT_CHAR)
+	while (*str != '%')
 		str++;
-	if (str[1] != LABEL_CHAR)
+	if (str[1] != ':')
 	{
 		if ((tab[0] = (int)ft_atoi_long(&str[1])) < 0)
 			tab[0] = 65536 + tab[0];
@@ -129,7 +129,7 @@ void			print_lld(t_env *env, const char *str)
 		print_ind(env, str, env->i);
 		POS += 5;
 	}
-	while (str[env->i] != SEPARATOR_CHAR)
+	while (str[env->i] != ',')
 		env->i++;
 	while (str[env->i] != 'r')
 		env->i++;

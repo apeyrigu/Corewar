@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 03:27:40 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:03:36 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/01 02:00:44 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print_ind(t_env *env, const char *str, int i)
 {
 	int		tab[1];
 
-	if (str[i] == LABEL_CHAR)
+	if (str[i] == ':')
 	{
 		tab[0] = (locate_label(env->label, &str[i + 1]));
 		tab[0] = tab[0] - POS;
@@ -56,7 +56,7 @@ void	print_dir(t_env *env, const char *str, int i, int dir_size)
 {
 	int		tab[1];
 
-	if (str[i + 1] == LABEL_CHAR)
+	if (str[i + 1] == ':')
 	{
 		if (dir_size == 4)
 		{

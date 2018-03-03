@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 01:39:18 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:17:02 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/01 02:02:18 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void			print_live(t_env *env, const char *str)
 
 	tab[0] = 0x00000001;
 	write(FD, tab, 1);
-	while (*str != DIRECT_CHAR)
+	while (*str != '%')
 		str++;
-	if (str[1] != LABEL_CHAR)
+	if (str[1] != ':')
 	{
 		if ((tab[0] = (int)ft_atoi_long(&str[1])) < 0)
 			tab[0] = 4294967296 + tab[0];
@@ -56,7 +56,7 @@ void			print_ld(t_env *env, const char *str)
 		print_ind(env, str, i);
 		POS += 5;
 	}
-	while (str[i] != SEPARATOR_CHAR)
+	while (str[i] != ',')
 		i++;
 	while (str[i] != 'r')
 		i++;
@@ -72,7 +72,7 @@ static void		print_st2(t_env *env, const char *str, int i, int save)
 	write(FD, tab, 1);
 	tab[0] = ft_atoi(&str[save + 1]);
 	write(FD, tab, 1);
-	while (str[i] != SEPARATOR_CHAR)
+	while (str[i] != ',')
 		i++;
 	i++;
 	while (str[i] < 33)
@@ -94,7 +94,7 @@ void			print_st(t_env *env, const char *str)
 	while (str[i] != 'r')
 		i++;
 	save = i;
-	while (str[i] != SEPARATOR_CHAR)
+	while (str[i] != ',')
 		i++;
 	if (is_ind_print(str, &i))
 	{

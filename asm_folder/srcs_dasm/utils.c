@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 00:45:53 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/05 06:01:26 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 04:25:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	clear_buff(char *buff)
 
 void	alloc_op(t_env *env)
 {
-	env->op = ft_memalloc(sizeof(char *) * 16);
+	if (!(env->op = ft_memalloc(sizeof(char *) * 16)))
+		exit(-1);
 	env->op[0] = get_live;
 	env->op[1] = get_ld;
 	env->op[2] = get_st;

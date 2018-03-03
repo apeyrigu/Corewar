@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 04:08:31 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/06 01:23:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 04:23:14 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int		main(int ac, char **av)
 		ft_printf("\n{cyan}----------- Champions decompilation ----------\n\n");
 	while (++i < ac)
 	{
-		env = (t_env *)ft_memalloc(sizeof(t_env));
+		if (!(env = (t_env *)ft_memalloc(sizeof(t_env))))
+			return (-1);
 		if (!start(env, av[i]))
 		{
 			ft_printf("{red}ERROR: %s : '%s'\n", env->error, av[i]);

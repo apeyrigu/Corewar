@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 05:29:23 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:20:37 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/05 04:24:06 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char			is_dir(t_env *env, const char *str)
 {
-	if (!((*str == DIRECT_CHAR) ? str++ : 0))
+	if (!((*str == '%') ? str++ : 0))
 		return (0);
 	if (*str == '-')
 	{
 		str++;
-		if (*str == LABEL_CHAR)
+		if (*str == ':')
 			return (0);
 	}
 	if (*str >= '0' && *str <= '9')
@@ -28,11 +28,11 @@ char			is_dir(t_env *env, const char *str)
 			str++;
 		while (*str && *str < 33)
 			str++;
-		if (*str && (*str != COMMENT_CHAR && *str != ';'))
+		if (*str && (*str != '#' && *str != ';'))
 			return (0);
 		return (1);
 	}
-	else if (*str == LABEL_CHAR)
+	else if (*str == ':')
 	{
 		if (!save_ulabel(env, &str[1]))
 			return (0);
@@ -46,7 +46,7 @@ char			is_ind(t_env *env, const char *str)
 	if (*str == '-')
 	{
 		str++;
-		if (*str == LABEL_CHAR)
+		if (*str == ':')
 			return (0);
 	}
 	if (*str >= '0' && *str <= '9')
@@ -55,11 +55,11 @@ char			is_ind(t_env *env, const char *str)
 			str++;
 		while (*str && *str < 33)
 			str++;
-		if (*str && (*str != COMMENT_CHAR && *str != ';'))
+		if (*str && (*str != '#' && *str != ';'))
 			return (0);
 		return (1);
 	}
-	else if (*str == LABEL_CHAR)
+	else if (*str == ':')
 	{
 		if (!save_ulabel(env, &str[1]))
 			return (0);
@@ -80,7 +80,7 @@ char			is_reg(const char *str)
 	if (*str < '0' || *str > '9')
 		return (0);
 	reg = ft_atoi(str);
-	if (reg < 1 || reg > REG_NUMBER)
+	if (reg < 1 || reg > 16)
 		return (0);
 	return (1);
 }
@@ -93,7 +93,7 @@ char			check_ld(t_env *env, char **tab)
 		tab[0]++;
 	while (*tab[1] < 33)
 		tab[1]++;
-	if (tab[0][0] == DIRECT_CHAR && is_dir(env, tab[0]))
+	if (tab[0][0] == '%' && is_dir(env, tab[0]))
 	{
 		if (is_reg(tab[1]))
 		{

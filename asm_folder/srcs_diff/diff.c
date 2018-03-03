@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 02:38:21 by abassibe          #+#    #+#             */
-/*   Updated: 2018/02/15 01:14:33 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 02:29:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 void	check_diff(t_env *env, int *nl, int *octet)
 {
 	if (env->str1[0] != env->str2[0])
-	{
-		ft_printf("\nDifference a l'octet %d :\n\n", *octet);
-		ft_printf("{red}[%4d]|[%-4d]\n\n", env->str1[0], env->str2[0]);
-		exit(-1);
-	}
-	ft_printf("{green}[%4d]|[%-4d]", env->str1[0], env->str2[0]);
+		ft_printf("{red}[%4d]|[%-4d]", env->str1[0], env->str2[0]);
+	else
+		ft_printf("{green}[%4d]|[%-4d]", env->str1[0], env->str2[0]);
 	(*nl)++;
 	if (*nl >= 8)
 	{

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 01:35:50 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:14:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/06 03:46:23 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ char	is_dir_print(const char *str, int *i)
 	int		save;
 
 	save = *i;
-	while (str[*i] != DIRECT_CHAR)
+	while (str[*i] != '%')
 	{
-		if (!str[*i] || str[*i] == SEPARATOR_CHAR)
+		if (!str[*i] || str[*i] == ',')
 			break ;
 		(*i)++;
 	}
-	if (str[*i] == DIRECT_CHAR)
+	if (str[*i] == '%')
 		return (1);
 	*i = save;
 	return (0);
@@ -61,9 +61,9 @@ char	is_ind_print(const char *str, int *i)
 	int		save;
 
 	save = *i;
-	while (str[*i] && str[*i] != LABEL_CHAR && str[*i] < 33 && str[*i] != 'r')
+	while (str[*i] && str[*i] != ':' && str[*i] < 33 && str[*i] != 'r')
 		(*i)++;
-	while (str[*i] && str[*i] != LABEL_CHAR && str[*i] > 33 && (str[*i] < '0' ||
+	while (str[*i] && str[*i] != ':' && str[*i] > 33 && (str[*i] < '0' ||
 				str[*i] > '9') && str[*i] != 'r' && str[*i] != '-')
 	{
 		if (str[*i] == 'o' && str[*i + 1] == 'r')
@@ -71,9 +71,9 @@ char	is_ind_print(const char *str, int *i)
 		else
 			(*i)++;
 	}
-	while (str[*i] && str[*i] != LABEL_CHAR && str[*i] < 33 && str[*i] != 'r')
+	while (str[*i] && str[*i] != ':' && str[*i] < 33 && str[*i] != 'r')
 		(*i)++;
-	if (str[*i] == LABEL_CHAR || (str[*i] >= '0' && str[*i] <= '9') ||
+	if (str[*i] == ':' || (str[*i] >= '0' && str[*i] <= '9') ||
 			(str[*i] == '-' && (str[*i + 1] >= '0' && str[*i + 1] <= '9')))
 		return (1);
 	*i = save;

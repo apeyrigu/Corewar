@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 05:18:30 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 03:25:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/02 05:26:21 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	check_extend(const char *str)
 	i = ft_strlen(str);
 	if (str[i - 2] != '.' || str[i - 1] != 's')
 	{
-		write(1, "Wrong extension\n", 16);
+		write(2, "Wrong extension\n", 16);
 		return (0);
 	}
 	return (1);
@@ -27,8 +27,8 @@ char	check_extend(const char *str)
 
 char	*creat_bin(const char *str)
 {
-	char	*tmp;
 	char	*ret;
+	char	*tmp;
 
 	tmp = ft_strndup(str, ft_strlen(str) - 2);
 	ret = ft_strjoin(tmp, ".cor");

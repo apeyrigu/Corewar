@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 13:50:58 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 06:15:15 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/01/20 01:40:27 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include "libft.h"
-# define BUFF_SIZE 10
+# define BUFF_SIZE 100
 
 typedef struct		s_buff
 {

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 01:53:49 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:17:27 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/01/31 01:35:29 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void		print_ldi2(t_env *env, const char *str, int *i, int save)
 	if (is_ind_print(str, &*i))
 	{
 		save = *i;
-		while (str[*i] != SEPARATOR_CHAR)
+		while (str[*i] != ',')
 			(*i)++;
 		(*i)++;
 		print_ldi_ind(env, str, &*i, save);
@@ -96,7 +96,7 @@ static void		print_ldi2(t_env *env, const char *str, int *i, int save)
 		while (str[*i] != 'r')
 			(*i)++;
 		save = *i;
-		while (str[*i] != SEPARATOR_CHAR)
+		while (str[*i] != ',')
 			(*i)++;
 		(*i)++;
 		print_ldi_reg(env, str, &*i, save);
@@ -116,7 +116,7 @@ void			print_ldi(t_env *env, const char *str)
 	if (is_dir_print(str, &i))
 	{
 		save = i;
-		while (str[i] != SEPARATOR_CHAR)
+		while (str[i] != ',')
 			i++;
 		i++;
 		print_ldi_dir(env, str, &i, save);

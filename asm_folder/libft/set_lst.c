@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/28 03:20:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/02 12:42:33 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 04:19:04 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_print			*crea_lst(const char *format)
 {
 	t_print		*new;
 
-	new = (t_print *)malloc(sizeof(t_print));
+	if (!(new = (t_print *)malloc(sizeof(t_print))))
+		return (NULL);
 	new->fmt = NULL;
 	new->fmt = ft_strdup((char *)format);
 	return (new);

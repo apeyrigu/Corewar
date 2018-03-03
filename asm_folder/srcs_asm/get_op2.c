@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 04:40:10 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 01:15:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/01/31 03:08:08 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static char		get_op10(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'l' && str[1] == 'd' && str[2] == 'i' && (str[3] < 33 ||
-				str[3] == DIRECT_CHAR || str[3] == LABEL_CHAR))
+				str[3] == '%' || str[3] == ':'))
 	{
 		str += 3;
-		while (*str && *str != LABEL_CHAR && (*str < '0' || *str > '9') &&
-				*str != '-' && *str != DIRECT_CHAR && *str != 'r')
+		while (*str && *str != ':' && (*str < '0' || *str > '9') &&
+				*str != '-' && *str != '%' && *str != 'r')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 3);
+		tab = ft_strsplit2(str, ',', 3);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		env->save[2] = tab[2];
@@ -39,9 +39,9 @@ static char		get_op10(t_env *env, const char *str, char **tab)
 static char		get_op9(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'z' && str[1] == 'j' && str[2] == 'm' && str[3] == 'p' &&
-			(str[4] < 33 || str[4] == DIRECT_CHAR))
+			(str[4] < 33 || str[4] == '%'))
 	{
-		while (*str && *str != DIRECT_CHAR)
+		while (*str && *str != '%')
 			str++;
 		if (!is_dir(env, str))
 			return (0);
@@ -54,13 +54,13 @@ static char		get_op9(t_env *env, const char *str, char **tab)
 static char		get_op8(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'x' && str[1] == 'o' && str[2] == 'r' && (str[3] < 33 ||
-				str[3] == DIRECT_CHAR || str[3] == LABEL_CHAR))
+				str[3] == '%' || str[3] == ':'))
 	{
 		str += 3;
-		while (*str && *str != LABEL_CHAR && (*str < '0' || *str > '9') &&
-				*str != '-' && *str != DIRECT_CHAR && *str != 'r')
+		while (*str && *str != ':' && (*str < '0' || *str > '9') &&
+				*str != '-' && *str != '%' && *str != 'r')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 3);
+		tab = ft_strsplit2(str, ',', 3);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		env->save[2] = tab[2];
@@ -77,14 +77,14 @@ static char		get_op8(t_env *env, const char *str, char **tab)
 
 static char		get_op7(t_env *env, const char *str, char **tab)
 {
-	if (str[0] == 'o' && str[1] == 'r' && (str[2] < 33 || str[2] == DIRECT_CHAR
-				|| str[2] == LABEL_CHAR))
+	if (str[0] == 'o' && str[1] == 'r' && (str[2] < 33 || str[2] == '%' ||
+				str[2] == ':'))
 	{
 		str += 2;
-		while (*str && *str != LABEL_CHAR && (*str < '0' || *str > '9') &&
-				*str != '-' && *str != DIRECT_CHAR && *str != 'r')
+		while (*str && *str != ':' && (*str < '0' || *str > '9') &&
+				*str != '-' && *str != '%' && *str != 'r')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 3);
+		tab = ft_strsplit2(str, ',', 3);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		env->save[2] = tab[2];
@@ -102,13 +102,13 @@ static char		get_op7(t_env *env, const char *str, char **tab)
 char			get_op6(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'a' && str[1] == 'n' && str[2] == 'd' && (str[3] < 33 ||
-				str[3] == DIRECT_CHAR || str[3] == LABEL_CHAR))
+				str[3] == '%' || str[3] == ':'))
 	{
 		str += 3;
-		while (*str && *str != LABEL_CHAR && (*str < '0' || *str > '9') &&
-				*str != '-' && *str != DIRECT_CHAR && *str != 'r')
+		while (*str && *str != ':' && (*str < '0' || *str > '9') &&
+				*str != '-' && *str != '%' && *str != 'r')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 3);
+		tab = ft_strsplit2(str, ',', 3);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		env->save[2] = tab[2];

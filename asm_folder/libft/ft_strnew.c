@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 17:45:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/05 07:42:55 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/03/03 04:18:30 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ char	*ft_strnew(size_t size)
 	size_t	c;
 
 	c = 0;
-	m = (char *)malloc(size + 1);
-	if (m == NULL)
+	if (!(m = (char *)malloc(size + 1)))
 		return (NULL);
 	while (c != size)
 	{

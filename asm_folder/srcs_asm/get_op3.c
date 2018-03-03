@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 04:40:10 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 04:37:56 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/01/24 04:52:24 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static char		get_op15(t_env *env, const char *str)
 {
 	if (str[0] == 'l' && str[1] == 'f' && str[2] == 'o' && str[3] == 'r' &&
-			str[4] == 'k' && (str[5] < 33 || str[5] == DIRECT_CHAR))
+			str[4] == 'k' && (str[5] < 33 || str[5] == '%'))
 	{
-		while (*str && *str != DIRECT_CHAR)
+		while (*str && *str != '%')
 			str++;
 		if (!is_dir(env, str))
 			return (0);
@@ -39,14 +39,13 @@ static char		get_op15(t_env *env, const char *str)
 static char		get_op14(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'l' && str[1] == 'l' && str[2] == 'd' &&
-			str[3] == 'i' && (str[4] < 33 || str[4] == DIRECT_CHAR ||
-				str[4] == LABEL_CHAR))
+			str[3] == 'i' && (str[4] < 33 || str[4] == '%' || str[4] == ':'))
 	{
 		str += 4;
-		while (*str && *str != LABEL_CHAR && (*str < '0' || *str > '9') &&
-				*str != '-' && *str != DIRECT_CHAR && *str != 'r')
+		while (*str && *str != ':' && (*str < '0' || *str > '9') &&
+				*str != '-' && *str != '%' && *str != 'r')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 3);
+		tab = ft_strsplit2(str, ',', 3);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		env->save[2] = tab[2];
@@ -64,12 +63,12 @@ static char		get_op14(t_env *env, const char *str, char **tab)
 static char		get_op13(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'l' && str[1] == 'l' && str[2] == 'd' &&
-			(str[3] < 33 || str[3] == DIRECT_CHAR || str[2] == LABEL_CHAR))
+			(str[3] < 33 || str[3] == '%' || str[2] == ':'))
 	{
-		while (*str && *str != LABEL_CHAR && (*str < '0' || *str > '9') &&
-				*str != '-' && *str != DIRECT_CHAR)
+		while (*str && *str != ':' && (*str < '0' || *str > '9') &&
+				*str != '-' && *str != '%')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 2);
+		tab = ft_strsplit2(str, ',', 2);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		if (!check_ld(env, tab))
@@ -86,9 +85,9 @@ static char		get_op13(t_env *env, const char *str, char **tab)
 static char		get_op12(t_env *env, const char *str, char **tab)
 {
 	if (str[0] == 'f' && str[1] == 'o' && str[2] == 'r' &&
-			str[3] == 'k' && (str[4] < 33 || str[4] == DIRECT_CHAR))
+			str[3] == 'k' && (str[4] < 33 || str[4] == '%'))
 	{
-		while (*str && *str != DIRECT_CHAR)
+		while (*str && *str != '%')
 			str++;
 		if (!is_dir(env, str))
 			return (0);
@@ -104,7 +103,7 @@ char			get_op11(t_env *env, const char *str, char **tab)
 	{
 		while (*str && *str != 'r')
 			str++;
-		tab = ft_strsplit2(str, SEPARATOR_CHAR, 3);
+		tab = ft_strsplit2(str, ',', 3);
 		env->save[0] = tab[0];
 		env->save[1] = tab[1];
 		env->save[2] = tab[2];

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 02:58:23 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 04:44:43 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/06 02:52:19 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_op(t_env *env, const char *str)
 		while (tmp)
 		{
 			if (ft_strnstr(str, tmp->label_name, ft_strlen(tmp->label_name)))
-				if (str[ft_strlen(tmp->label_name)] == LABEL_CHAR)
+				if (str[ft_strlen(tmp->label_name)] == ':')
 					str += ft_strlen(tmp->label_name) + 2;
 			tmp = tmp->next;
 			while (*str && *str < 33)
@@ -44,7 +44,7 @@ char	is_label(const char *str)
 	int		i;
 
 	i = 0;
-	while (str[i] && str[i] != LABEL_CHAR)
+	while (str[i] && str[i] != ':')
 		i++;
 	if (!str[i])
 		return (0);
@@ -85,9 +85,8 @@ void	kingdom_hearts(t_env *env)
 {
 	char	*str;
 
-	env->tab[0] = switch_int(COREWAR_EXEC_MAGIC);
-	if (!(env->bin_name = creat_bin(env->file_name)))
-		return ;
+	env->tab[0] = 0xf383ea00;
+	env->bin_name = creat_bin(env->file_name);
 	if ((FD = open(env->bin_name, O_CREAT | O_RDWR, 0777)) == -1)
 		ft_error("", 1);
 	write(FD, env->tab, 4);

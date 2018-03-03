@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 01:33:27 by abassibe          #+#    #+#             */
-/*   Updated: 2018/03/01 20:37:39 by abassibe         ###   ########.fr       */
+/*   Updated: 2018/02/05 05:52:12 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ char	get_reg(t_env *env)
 		reg = env->str[0];
 		if (reg < 1 || reg > 16)
 		{
+			printf("%d\n", reg);
 			ERR = ft_strdup("Bad registry size");
 			return (0);
 		}
