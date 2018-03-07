@@ -16,7 +16,7 @@ t_mdf	*get_mdf(char *str)
 {
 	t_mdf *ret;
 
-	ret = (t_mdf*)malloc(sizeof(t_mdf));
+	ret = (t_mdf*)ft_malloc(sizeof(t_mdf));
 	ret->h = ft_count_c('h', str, 0);
 	ret->l = ft_count_c('l', str, 0);
 	ret->j = ft_count_c('j', str, 0);

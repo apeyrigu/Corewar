@@ -35,7 +35,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	if ((p = (char *)malloc(sizeof(char) * (len(s1) + len(s2)) + 1)) == NULL)
+	if ((p = (char *)ft_malloc(sizeof(char) * (len(s1) + len(s2)) + 1)) == NULL)
 		return (NULL);
 	if (s1 != NULL)
 		ft_strcpy(p, s1);

@@ -6,7 +6,7 @@
 #    By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 10:47:39 by pcluchet          #+#    #+#              #
-#    Updated: 2018/03/01 20:42:42 by abassibe         ###   ########.fr        #
+#    Updated: 2018/03/07 22:29:52 by pcluchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ CFLAGS =  -I$(LIBFT_DIR)includes/  -I$(H_DIR) $(EXTRAFLAGS)
 	ops_8.c \
 	parse_memory.c \
 	endgame.c \
-	how_use.c
+	how_use.c \
 
 	LIBFT_DIR = ./libft/
 	O_FILES = $(C_WITH_PATH:.c=.o)

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 static int		ft_strlenne(char *str)
 {
@@ -29,7 +30,7 @@ char			*ft_strdup(char *src)
 	char	*new;
 	int		i;
 
-	new = (char*)malloc(sizeof(char) * ft_strlenne(src) + 1);
+	new = (char*)ft_malloc(sizeof(char) * ft_strlenne(src) + 1);
 	if (new == NULL)
 		return (NULL);
 	i = 0;

@@ -55,7 +55,7 @@ char					**ft_strsplit(char const *s, char c)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	if ((ptr = (char **)malloc(sizeof(char*) * c_id(s, c) + 1)) == NULL)
+	if ((ptr = (char **)ft_malloc(sizeof(char*) * c_id(s, c) + 1)) == NULL)
 		return (NULL);
 	while (s[i])
 	{

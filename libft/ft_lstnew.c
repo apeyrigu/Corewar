@@ -17,12 +17,12 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *retour;
 
-	retour = (t_list*)malloc(sizeof(t_list));
+	retour = (t_list*)ft_malloc(sizeof(t_list));
 	if (retour == NULL)
 		return (NULL);
 	if (content != NULL)
 	{
-		retour->content = malloc(sizeof(unsigned char) * content_size);
+		retour->content = ft_malloc(sizeof(unsigned char) * content_size);
 		if (retour->content == NULL)
 			return (NULL);
 		ft_memcpy(retour->content, content, content_size);
@@ -30,7 +30,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		retour->content = malloc(1);
+		retour->content = ft_malloc(1);
 		retour->content = NULL;
 		retour->content_size = 0;
 	}

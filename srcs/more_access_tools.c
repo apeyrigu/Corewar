@@ -15,7 +15,7 @@
 void		add_process(t_vm *vm, t_process to_add)
 {
 	to_add.next = vm->process;
-	vm->process = malloc(sizeof(t_process));
+	vm->process = ft_malloc(sizeof(t_process));
 	ft_memcpy(vm->process, &to_add, sizeof(t_process));
 	vm->nbprocess++;
 }

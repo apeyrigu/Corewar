@@ -16,7 +16,7 @@ t_fmt	*new_fmt(char main)
 {
 	t_fmt			*ret;
 
-	ret = (t_fmt*)malloc(sizeof(t_fmt));
+	ret = (t_fmt*)ft_malloc(sizeof(t_fmt));
 	ret->main = main;
 	ret->precision = -1;
 	ret->minlen = -1;

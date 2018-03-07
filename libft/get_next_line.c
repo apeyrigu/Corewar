@@ -48,7 +48,7 @@ static t_fdstuff	*new_fdstuff(int fd)
 {
 	t_fdstuff *fds;
 
-	fds = (t_fdstuff*)malloc(sizeof(t_fdstuff));
+	fds = (t_fdstuff*)ft_malloc(sizeof(t_fdstuff));
 	fds->fd = fd;
 	fds->i = 0;
 	fds->p = (char*)ft_memalloc(BUFF_SIZE + 1);

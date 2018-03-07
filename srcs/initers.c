@@ -16,7 +16,7 @@ void	init_arena_map(t_vm *vm)
 {
 	int		i;
 
-	vm->arena_map = malloc(sizeof(int) * MEM_SIZE);
+	vm->arena_map = ft_malloc(sizeof(int) * MEM_SIZE);
 	i = 0;
 	while (i < MEM_SIZE)
 	{
@@ -29,7 +29,7 @@ void	init_arena(t_vm *vm)
 {
 	int		i;
 
-	vm->arena = malloc(sizeof(unsigned char) * MEM_SIZE);
+	vm->arena = ft_malloc(sizeof(unsigned char) * MEM_SIZE);
 	i = 0;
 	while (i < MEM_SIZE)
 	{

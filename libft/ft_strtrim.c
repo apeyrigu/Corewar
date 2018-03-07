@@ -49,7 +49,7 @@ char					*ft_strtrim(char const *s)
 		i++;
 	if (!s[i])
 		return (ft_strdup(""));
-	if ((p = (char *)malloc(sizeof(char) * (f + 1 - (i)) + 1)) == NULL)
+	if ((p = (char *)ft_malloc(sizeof(char) * (f + 1 - (i)) + 1)) == NULL)
 		return (NULL);
 	j = 0;
 	while (s[i] && i <= f)

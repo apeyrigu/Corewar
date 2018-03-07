@@ -96,6 +96,7 @@ ft_tolower.c \
 ft_toupper.c \
 ft_wlen.c \
 ft_wstrlen.c \
+ft_malloc.c
 
 C_PRINTF_FILES = c_handler.c \
 d_handler.c \
@@ -133,7 +134,7 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 
-re : 
+re :
 	$(MAKE) fclean
 	$(MAKE) all
 
