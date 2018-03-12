@@ -6,7 +6,7 @@
 #    By: apeyrigu <apeyrigu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 10:47:39 by pcluchet          #+#    #+#              #
-#    Updated: 2018/03/07 22:29:52 by pcluchet         ###   ########.fr        #
+#    Updated: 2018/03/13 00:34:37 by pcluchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ C_WITH_PATH = $(addprefix $(SRC_DIR),$(C_FILES))
 all : $(NAME)
 
 $(NAME) : libs $(O_FILES)
-	$(CC) -o $(NAME) $(O_FILES) $(CFLAGS) $(LINKS)
+	@$(CC) -o $(NAME) $(O_FILES) $(CFLAGS) $(LINKS)
 	make -C asm_folder
 
 clean :
